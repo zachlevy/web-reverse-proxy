@@ -18,7 +18,7 @@ module WebReverseProxy
     # reverse proxy
     config.middleware.insert(0, Rack::ReverseProxy) do
       reverse_proxy_options preserve_host: true
-      reverse_proxy /^(.*)$/, "https://en.m.wikipedia.org$1"#{ }"#{ENV["PROXY_URL"]}$1"
+      reverse_proxy /^(.*)$/, "#{ENV["PROXY_DOMAIN"]}$1"
     end
   end
 end
